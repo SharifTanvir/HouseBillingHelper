@@ -6,12 +6,18 @@ public class House {
     private  String unit;
     private String address;
     private String ownerId;
+    private String key;
 
-    public House(String floor, String unit, String address, String ownerId) {
+    public House(){
+
+    }
+
+    public House(String floor, String unit, String address, String ownerId, String key) {
         this.floor = floor;
         this.unit = unit;
         this.address = address;
         this.ownerId = ownerId;
+        this.key = key;
     }
 
     public String getFloor() {
@@ -44,5 +50,13 @@ public class House {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public String getkeyValue() {
+        return key;
+    }
+
+    public void setkeyValue(String key) {
+        this.key = key;
     }
 }

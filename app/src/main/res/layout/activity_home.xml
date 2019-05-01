@@ -8,58 +8,88 @@ android:orientation="vertical"
 android:paddingTop="25dp"
 tools:context=".HomeActivity">
 
-<LinearLayout
 
+
+   <LinearLayout
 
     android:id="@+id/input_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
     android:orientation="vertical">
 
+       <TextView
+           android:id="@+id/tv_addNewHome"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:textSize="20dp"
+           android:gravity="center"
+           android:layout_marginTop="25dp"
+           android:layout_marginBottom="30dp"
+           android:background="#EBEEEE"
+           android:text="Add a new house!" />
+
+
+       <EditText
+           android:id="@+id/et_nmFloor"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="floor number"
+           android:inputType="number"
+           android:visibility="invisible" />
+
+       <EditText
+           android:id="@+id/et_nmUnit"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="number of units"
+           android:inputType="number"
+           android:visibility="invisible" />
+
+       <EditText
+           android:id="@+id/et_houseAddress"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="address"
+           android:inputType="text"
+           android:visibility="invisible" />
+       <Button
+        android:id="@+id/btn_addHouse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+           android:background="#A94CAF50"
+        android:visibility="invisible"
+        android:text="ADD" />
+
+     </LinearLayout>
+
     <TextView
-        android:id="@+id/tv_addNewHome"
+        android:id="@+id/tv_houseAddress"
+        android:layout_below="@+id/input_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:background="#EBEEEE"
+        android:text=" Show House List" />
+
+    <ListView
+        android:id="@+id/dv_houseList"
+        android:listSelector="#CED3D2"
+        android:dividerHeight="2dp"
+        android:divider="#8BC34A"
+        android:layout_below="@+id/tv_houseAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="25dp"
-        android:gravity="left"
-        android:layout_marginBottom="15dp"
-        android:layout_centerVertical="true"
-        android:text="Add a new house!" />
+        android:visibility="invisible">
 
 
-    <EditText
-        android:id="@+id/et_nmFloor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:inputType="number" />
-    <EditText
-        android:id="@+id/et_nmUnit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:inputType="number" />
-    <EditText
-        android:id="@+id/et_houseAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:inputType="text" />
+    </ListView>
 
-</LinearLayout>
 
-<Button
-    android:id="@+id/btn_addHouse"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/input_container"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    android:visibility="invisible"
-    android:text="ADD" />
+
 
 
 </RelativeLayout>

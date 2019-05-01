@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FlatActivity">
+
+
+    <TextView
+        android:id="@+id/tv_addNewHome"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:background="#EBEEEE"
+        android:text="Add a new flat info..!" />
+
+
+    <EditText
+        android:id="@+id/et_flatId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="flat number"
+        android:inputType="text"
+         />
+
+    <Button
+        android:id="@+id/btn_addFlat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="ADD" />
+
+    <TextView
+        android:id="@+id/tv_flatList"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:background="#EBEEEE"
+        android:text=".......FLAT LIST......" />
+
+    <ListView
+        android:id="@+id/lv_flatList"
+        android:listSelector="#DDFCF9"
+        android:dividerHeight="2dp"
+        android:divider="#8BC34A"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"/>
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BillActivity">
+
+
+    <TextView
+        android:id="@+id/tv_tagBill"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:background="#EBEEEE"
+        android:text="ABOUT BILL" />
+
+    <EditText
+        android:id="@+id/et_billMonth"
+        android:hint="month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_billRent"
+        android:hint="rent amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/et_billMeterReading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="current meter reading"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_billElectricity"
+        android:hint="current bill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/et_billTotal"
+        android:hint="total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/et_billRentStatus"
+        android:hint="rent unpaid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+    <EditText
+        android:id="@+id/et_billElectricityStatus"
+        android:hint="unpaid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/btn_makeBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="ok" />
+
+
+
+
+
+</LinearLayout>

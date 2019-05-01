@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        this.setTitle("Log in");
+        this.setTitle("Sign in");
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RentActivity">
+
+
+    <TextView
+        android:id="@+id/tv_tagTenant"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="30dp"
+        android:background="#EBEEEE"
+        android:text="Details of Tenant" />
+
+    <EditText
+        android:id="@+id/et_tenantName"
+        android:hint="name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/et_tenantPhone"
+        android:hint="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/et_tenantNID"
+        android:hint="nid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_marginLeft="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_tenantAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ADD" />
+
+        <Button
+            android:id="@+id/btn_tenantUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/btn_tenantAdd"
+            android:layout_gravity="center"
+            android:text="Update" />
+
+        <Button
+            android:id="@+id/btn_tenantDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/btn_tenantUpdate"
+            android:layout_gravity="center"
+            android:text="Delete" />
+
+        <Button
+            android:id="@+id/btn_tenantCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/btn_tenantDelete"
+            android:layout_gravity="center"
+            android:text="Call" />
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_addBill"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="15dp"
+        android:background="#A93C8B40"
+        android:text="Create new bill" />
+
+    <TextView
+        android:id="@+id/tv_billHistory"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:background="#DF4CAF50"
+        android:text="BILL HISTORY" />
+
+
+    <ListView
+        android:id="@+id/lv_billList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:divider="#8BC34A"
+        android:dividerHeight="2dp"
+        android:listSelector="#DDFCF9"
+        android:visibility="visible" />
+
+
+
+</LinearLayout>
