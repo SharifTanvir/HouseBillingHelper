@@ -191,7 +191,7 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         if(nid.isEmpty()) {
-            tenantNid.setError("Enter phone number");
+            tenantNid.setError("Enter nid");
             tenantNid.requestFocus();
             return;
         }

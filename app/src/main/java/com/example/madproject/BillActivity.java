@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,11 +72,31 @@ public class BillActivity extends AppCompatActivity {
         billElectricityStatus = findViewById(R.id.et_billElectricityStatus);
 
 
+
+        billMeterReading.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                billElectricity.setText(String.valueOf(Float.valueOf(billMeterReading.getText().toString().trim())*6));
+                billTotal.setText(String.valueOf(Float.valueOf(billElectricity.getText().toString().trim())+ Float.valueOf(billRent.getText().toString().trim()) ));
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+
+
         ok = findViewById(R.id.btn_makeBill);
-
-
-
-
 
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +149,27 @@ public class BillActivity extends AppCompatActivity {
                     String rentStatus = billRentStatus.getText().toString().trim();
                     String electricityStatus = billElectricityStatus.getText().toString().trim();
 
+                    if(month.isEmpty()) {
+                        billMonth.setError("Enter month");
+                        billMonth.requestFocus();
+                        return;
+                    }
+                    if(rent <= 0) {
+                        billRent.setError("Enter rent");
+                        billRent.requestFocus();
+                        return;
+                    }
+                    if(meter<=0) {
+                        billMeterReading.setError("Enter meter reading");
+                        billMeterReading.requestFocus();
+                        return;
+                    }
+                    if(total <= 0) {
+                        billTotal.setError("Enter name");
+                        billTotal.requestFocus();
+                        return;
+                    }
+
                     SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
                     Date todayDate = new Date();
                     String thisDate = currentDate.format(todayDate);
@@ -134,6 +178,8 @@ public class BillActivity extends AppCompatActivity {
                     String key = databaseReference.push().getKey();
                     Bill bill = new Bill(month, rent, meter, electricity, total, rentStatus, electricityStatus, key, flat_id, thisDate);
                     databaseReference.child(key).setValue(bill);
+
+                    Toast.makeText(getApplicationContext(), "Information added successfully...!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

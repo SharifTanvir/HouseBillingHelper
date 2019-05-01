@@ -127,7 +127,7 @@ public class FlatActivity extends AppCompatActivity implements View.OnClickListe
         String floorId = flatName.getText().toString().trim();
 
         if(floorId.isEmpty()) {
-            flatName.setError("Enter name");
+            flatName.setError("Enter floor name");
             flatName.requestFocus();
             return;
         }
