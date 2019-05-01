@@ -1,6 +1,11 @@
 package com.example.madproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +39,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private EditText tot_floor,tot_unit,house_address;
     private Button addHouse;
     private ListView houseList;
+
+    private SensorManager sm;
+    private float aclVal;
+    private  float aclLast;
+    private  float shake;
 
     String uid;
 
@@ -73,7 +83,45 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         showHouseList.setOnClickListener(this);
         addHouse.setOnClickListener(this);
 
+        sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sm.registerListener(sensorListener,sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_NORMAL);
+
+        aclLast = SensorManager.GRAVITY_EARTH;
+        aclVal = SensorManager.GRAVITY_EARTH;
+        shake = 0.0f;
+
+
     }
+
+    private final SensorEventListener sensorListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent sensorEvent) {
+
+            float x = sensorEvent.values[0];
+            float y = sensorEvent.values[1];
+            float z = sensorEvent.values[2];
+
+            aclLast = aclVal;
+            aclVal = (float) Math.sqrt((double) x*x + y*y + z*z);
+            float delta = aclVal - aclLast;
+            shake = shake * 0.9f + delta;
+
+            if (shake > 12){
+
+                Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+                homeIntent.addCategory(Intent.CATEGORY_HOME);
+                homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+
+            }
+
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+
+        }
+    };
 
     @Override
     public void onClick(View view) {
@@ -137,10 +185,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         String units = tot_unit.getText().toString().trim();
         String address = house_address.getText().toString().trim();
 
+
+        if(floors.isEmpty()) {
+            tot_floor.setError("Enter number of floor");
+            tot_floor.requestFocus();
+            return;
+        }
+        if(units.isEmpty()) {
+            tot_unit.setError("Enter number of units");
+            tot_unit.requestFocus();
+            return;
+        }
+        if(address.isEmpty()) {
+            house_address.setError("Enter  address");
+            house_address.requestFocus();
+            return;
+        }
+
         String key = databaseReference.push().getKey();
-
         House house = new House(floors,units,address,uid,key);
-
         databaseReference.child(key).setValue(house);
 
 
@@ -150,10 +213,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         addHouse.setVisibility(View.INVISIBLE);
 
         Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
-
-
-
-
 
     }
 }

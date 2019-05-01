@@ -18,7 +18,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginBottom="30dp"
         android:background="#EBEEEE"
-        android:text="Add a new flat info..!" />
+        android:text="ADD A NEW FLAT INFO" />
 
 
     <EditText
@@ -46,7 +46,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginBottom="30dp"
         android:background="#EBEEEE"
-        android:text=".......FLAT LIST......" />
+        android:text="FLAT LIST" />
 
     <ListView
         android:id="@+id/lv_flatList"
